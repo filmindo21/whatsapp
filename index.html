@@ -1,21 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Bali Daily Assistant - WhatsApp Smartlink</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WhatsApp Private — Smartlink</title>
 
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="WhatsApp Private Assistant in Bali" />
-  <meta property="og:description" content="Need quick help in Bali? Contact us via WhatsApp for top-up, daily needs, or computer service." />
-  <meta property="og:image" content="image.jpeg" />
-  <meta property="og:url" content="https://wa.balidaily.link" />
+  <!-- ========= Open Graph (untuk preview ketika dibagikan) ========= -->
+  <!-- Ganti nilai-nilai di bawah sesuai smartlink & gambar Anda -->
+  <meta property="og:title" content="WhatsApp Private" />
+  <meta property="og:site_name" content="contact.chatwasap.info" />
+  <meta property="og:description" content="Klik untuk membuka kontak privat." />
+  <meta property="og:image" content="IMAGE_URL" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="SMARTLINK" />
 
-  <!-- Redirect to WhatsApp -->
-  <meta http-equiv="refresh" content="0; url=https://www.revenuecpmgate.com/sv5t9fq8p?key=e499590866613dc226c65e4e1230854a" />
+  <style>
+    :root{
+      --bg: #ffffff;
+      --card-bg: #fff;
+      --border: #e0e3e8;
+      --text: #222;
+      --muted: #8a8f95;
+      --accent: #1a73e8;
+      --radius: 28px;
+      --card-padding: 10px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;}
+    .wrap{max-width:720px;width:100%;}
+    .card-link{
+      display:flex;gap:12px;align-items:center;
+      text-decoration:none;color:inherit;
+      background:var(--card-bg);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:var(--card-padding);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+      transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      overflow:hidden;
+    }
+    .card-link:hover{ transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.07); border-color:#d0d6df; }
+    .thumb{
+      flex: 0 0 120px;
+      height: 84px;
+      overflow:hidden;
+      border-radius: 16px;
+    }
+    .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .content{
+      display:flex;flex-direction:column;justify-content:center;min-width:0;
+    }
+    .domain{
+      font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px;
+    }
+    .title{
+      font-size:20px; color:var(--text); font-weight:600; line-height:1.05; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
+    }
+    .meta-row{
+      display:flex;align-items:center;gap:8px;margin-top:6px;color:var(--muted);font-size:13px;
+    }
+    .badge{
+      background:rgba(26,115,232,0.08); color:var(--accent); border-radius:999px;padding:4px 8px;font-weight:600;font-size:12px;
+    }
+    /* responsive */
+    @media (max-width:420px){
+      .thumb{flex-basis:92px;height:72px;border-radius:12px;}
+      .title{font-size:17px;}
+    }
+
+    /* small helper: make card look like rounded "pill" like screenshot */
+    .card-wrapper{ padding:8px; }
+  </style>
 </head>
 <body>
-  <p>Redirecting to WhatsApp...</p>
+  <div class="wrap">
+    <!-- Ubah SMARTLINK dan IMAGE_URL serta teks sesuai kebutuhan -->
+    <div class="card-wrapper">
+      <a class="card-link" href="https://www.revenuecpmgate.com/sv5t9fq8p?key=e499590866613dc226c65e4e1230854a" target="_blank" rel="noopener noreferrer">
+        <div class="thumb" aria-hidden="true">
+          <img src="image.jpeg" alt="Preview image" />
+        </div>
+        <div class="content">
+          <div class="domain">CONTACT.CHATWASAP.INFO</div>
+          <div class="title">WhatsApp Private</div>
+          <div class="meta-row">
+            <div class="badge">Smartlink</div>
+            <div>Klik untuk membuka.</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Optional: script untuk mengganti nilai via query string -->
+  <script>
+    // Jika Anda ingin menyetel param lewat URL, mis:
+    // https://.../index.html?link=https%3A%2F%2Fadsterra.com&img=https%3A%2F%2Fexample.com%2Fimg.jpg&title=My+Title
+    (function(){
+      const params = new URLSearchParams(location.search);
+      const link = params.get('link');
+      const img = params.get('img');
+      const title = params.get('title');
+      const domainEl = document.querySelector('.domain');
+      const titleEl = document.querySelector('.title');
+      const anchor = document.querySelector('.card-link');
+      const imgEl = document.querySelector('.thumb img');
+
+      if(link) anchor.href = link;
+      if(img) imgEl.src = img;
+      if(title) titleEl.textContent = decodeURIComponent(title);
+      // set og meta (useful if page is re-scraped server-side, but client-side won't affect many scrapers)
+    })();
+  </script>
 </body>
 </html>
-
