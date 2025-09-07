@@ -6,7 +6,6 @@
   <title>WhatsApp Private — Smartlink</title>
 
   <!-- ========= Open Graph (untuk preview ketika dibagikan) ========= -->
-  <!-- Ganti nilai-nilai di bawah sesuai smartlink & gambar Anda -->
   <meta property="og:title" content="WhatsApp Private" />
   <meta property="og:site_name" content="contact.chatwasap.info" />
   <meta property="og:description" content="Klik untuk membuka kontak privat." />
@@ -62,19 +61,15 @@
     .badge{
       background:rgba(26,115,232,0.08); color:var(--accent); border-radius:999px;padding:4px 8px;font-weight:600;font-size:12px;
     }
-    /* responsive */
     @media (max-width:420px){
       .thumb{flex-basis:92px;height:72px;border-radius:12px;}
       .title{font-size:17px;}
     }
-
-    /* small helper: make card look like rounded "pill" like screenshot */
     .card-wrapper{ padding:8px; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- Ubah SMARTLINK dan IMAGE_URL serta teks sesuai kebutuhan -->
     <div class="card-wrapper">
       <a class="card-link" href="https://www.revenuecpmgate.com/sv5t9fq8p?key=e499590866613dc226c65e4e1230854a" target="_blank" rel="noopener noreferrer">
         <div class="thumb" aria-hidden="true">
@@ -92,10 +87,7 @@
     </div>
   </div>
 
-  <!-- Optional: script untuk mengganti nilai via query string -->
   <script>
-    // Jika Anda ingin menyetel param lewat URL, mis:
-    // https://.../index.html?link=https%3A%2F%2Fadsterra.com&img=https%3A%2F%2Fexample.com%2Fimg.jpg&title=My+Title
     (function(){
       const params = new URLSearchParams(location.search);
       const link = params.get('link');
@@ -109,7 +101,12 @@
       if(link) anchor.href = link;
       if(img) imgEl.src = img;
       if(title) titleEl.textContent = decodeURIComponent(title);
-      // set og meta (useful if page is re-scraped server-side, but client-side won't affect many scrapers)
+
+      // ====== Auto redirect setelah 1 detik ======
+      const targetUrl = link || "SMARTLINK"; 
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 1000); // 1000 ms = 1 detik
     })();
   </script>
 </body>
